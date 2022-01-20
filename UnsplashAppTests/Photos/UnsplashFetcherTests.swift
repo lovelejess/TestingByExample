@@ -61,4 +61,27 @@ class UnsplashFetcherTests: XCTestCase {
             .store(in: &subscribers)
             wait(for: [expectation], timeout: 5.0)
     }
+
+    func test_GETPhotos_failsToRetreiveData() throws {
+        let expectation = XCTestExpectation(description: "Fails to Get Photos")
+        guard let mockData = FakeJSONLoader.loadFile(for: "FakeFailureData") else { XCTFail("Unable load mock data");return }
+        let url = UnsplashFetcher.Endpoints.photos.url
+
+        fakeNetworkService.testDataForURL.updateValue(mockData, forKey: url)
+        unsplashFetcher
+            .photos()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { value in
+              switch value {
+              case .failure:
+                expectation.fulfill()
+              case .finished:
+                XCTFail("Test should cause a failure")
+              }
+            }, receiveValue: { _ in
+                XCTFail("Test should cause a failure")
+            })
+            .store(in: &subscribers)
+            wait(for: [expectation], timeout: 5.0)
+    }
 }

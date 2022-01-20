@@ -13,7 +13,8 @@ class PhotosViewModel {
         // make network call to get photos
         // parse data
         // get photo description
-        return UnsplashFetcher.Endpoints.photos.url.description
+//        return UnsplashFetcher.Endpoints.photos.url.description
+        return "FAILURE"
     }
 }
 

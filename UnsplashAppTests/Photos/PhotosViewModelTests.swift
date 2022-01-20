@@ -12,7 +12,7 @@ class PhotosViewModelTests: XCTestCase {
     private var viewModel: PhotosViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = PhotosViewModel()
     }
 
     func test_getPhotos_returns_photoDescription() throws {
@@ -20,7 +20,6 @@ class PhotosViewModelTests: XCTestCase {
         let actual = viewModel.getPhotos()
 
         XCTAssertEqual(actual, expected)
-
-        print("JESS \(expected)")
+        XCTFail("Missing implementation")
     }
 }
