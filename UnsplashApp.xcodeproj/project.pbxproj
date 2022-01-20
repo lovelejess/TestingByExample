@@ -27,6 +27,8 @@
 		78999B4E2799EB610062AACE /* DataConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B4D2799EB610062AACE /* DataConvertable.swift */; };
 		78999B502799EED20062AACE /* FakeURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B4F2799EED20062AACE /* FakeURLProtocol.swift */; };
 		78999B522799EFCA0062AACE /* FakeFailureData.json in Resources */ = {isa = PBXBuildFile; fileRef = 78999B512799EFCA0062AACE /* FakeFailureData.json */; };
+		78999B542799F2740062AACE /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B532799F2740062AACE /* NetworkTests.swift */; };
+		78999B562799F2C40062AACE /* DataConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B552799F2C40062AACE /* DataConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		78999B4D2799EB610062AACE /* DataConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertable.swift; sourceTree = "<group>"; };
 		78999B4F2799EED20062AACE /* FakeURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeURLProtocol.swift; sourceTree = "<group>"; };
 		78999B512799EFCA0062AACE /* FakeFailureData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeFailureData.json; sourceTree = "<group>"; };
+		78999B532799F2740062AACE /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		78999B552799F2C40062AACE /* DataConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +197,9 @@
 		78999B452799EAD40062AACE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				78999B552799F2C40062AACE /* DataConverterTests.swift */,
 				78999B462799EB160062AACE /* FakeNetworkService.swift */,
+				78999B532799F2740062AACE /* NetworkTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -356,7 +362,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78999B542799F2740062AACE /* NetworkTests.swift in Sources */,
 				78999B1D279866B60062AACE /* UnsplashFetcherTests.swift in Sources */,
+				78999B562799F2C40062AACE /* DataConverterTests.swift in Sources */,
 				78999B472799EB160062AACE /* FakeNetworkService.swift in Sources */,
 				78999B502799EED20062AACE /* FakeURLProtocol.swift in Sources */,
 				78999B3F2799E0690062AACE /* FakeJSONLoader.swift in Sources */,

@@ -39,8 +39,8 @@ public class NetworkService: Networkable {
             .mapError { error in
                 return NetworkError.networking(description: error.localizedDescription)
             }
-            .flatMap(maxPublishers: .max(1)) { data, response in
-                self.dataConverter.decode(data, request.url, response)
+            .flatMap(maxPublishers: .max(1)) { data, _  in
+                self.dataConverter.decode(data, request.url)
             }
             .eraseToAnyPublisher()
     }

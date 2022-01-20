@@ -13,7 +13,7 @@ protocol DataConverterable: AnyObject {
      - Parameter data: Data to be decoded
      - Returns: A publisher, with either the decoded data on success, or a `NetworkError` on failure
      */
-    func decode<T: Decodable>(_ data: Data, _ url: URL?, _ response: URLResponse) -> AnyPublisher<T, NetworkError>
+    func decode<T: Decodable>(_ data: Data, _ url: URL?) -> AnyPublisher<T, NetworkError>
 }
 
 class DataConverter: DataConverterable {
@@ -22,7 +22,7 @@ class DataConverter: DataConverterable {
     - Parameter data: Data to be decoded
     - Returns: A publisher, with either the decoded data on success, or a `NetworkError` on failure
     */
-    func decode<T: Decodable>(_ data: Data, _ url: URL?, _ response: URLResponse) -> AnyPublisher<T, NetworkError> {
+    func decode<T: Decodable>(_ data: Data, _ url: URL?) -> AnyPublisher<T, NetworkError> {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         return Just(data)

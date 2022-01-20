@@ -66,8 +66,8 @@ class UnsplashFetcherTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Fails to Get Photos")
         guard let mockData = FakeJSONLoader.loadFile(for: "FakeFailureData") else { XCTFail("Unable load mock data");return }
         let url = UnsplashFetcher.Endpoints.photos.url
-
         fakeNetworkService.testDataForURL.updateValue(mockData, forKey: url)
+
         unsplashFetcher
             .photos()
             .receive(on: DispatchQueue.main)
