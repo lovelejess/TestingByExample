@@ -10,6 +10,13 @@ import Foundation
 class PhotosViewModel {
 
     func getPhotos() -> String {
+        // make network call to get photos
+        // parse data
+        // get photo description
         return UnsplashFetcher.Endpoints.photos.url.description
     }
+}
+
+struct Photos: Codable {
+    var id: String
 }

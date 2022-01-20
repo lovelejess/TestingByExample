@@ -18,6 +18,15 @@
 		78999B29279866B60062AACE /* UnsplashAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B28279866B60062AACE /* UnsplashAppUITestsLaunchTests.swift */; };
 		78999B37279869A10062AACE /* UnsplashFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B36279869A10062AACE /* UnsplashFetcher.swift */; };
 		78999B392798E0680062AACE /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B382798E0680062AACE /* PhotosViewModel.swift */; };
+		78999B3D2799D9B20062AACE /* PhotosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B3C2799D9B20062AACE /* PhotosViewModelTests.swift */; };
+		78999B3F2799E0690062AACE /* FakeJSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B3E2799E0690062AACE /* FakeJSONLoader.swift */; };
+		78999B432799E1130062AACE /* FakePhotosData.json in Resources */ = {isa = PBXBuildFile; fileRef = 78999B422799E1130062AACE /* FakePhotosData.json */; };
+		78999B472799EB160062AACE /* FakeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B462799EB160062AACE /* FakeNetworkService.swift */; };
+		78999B4A2799EB2D0062AACE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B492799EB2D0062AACE /* Network.swift */; };
+		78999B4C2799EB460062AACE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B4B2799EB460062AACE /* NetworkError.swift */; };
+		78999B4E2799EB610062AACE /* DataConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B4D2799EB610062AACE /* DataConvertable.swift */; };
+		78999B502799EED20062AACE /* FakeURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B4F2799EED20062AACE /* FakeURLProtocol.swift */; };
+		78999B522799EFCA0062AACE /* FakeFailureData.json in Resources */ = {isa = PBXBuildFile; fileRef = 78999B512799EFCA0062AACE /* FakeFailureData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,15 @@
 		78999B28279866B60062AACE /* UnsplashAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		78999B36279869A10062AACE /* UnsplashFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashFetcher.swift; sourceTree = "<group>"; };
 		78999B382798E0680062AACE /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		78999B3C2799D9B20062AACE /* PhotosViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModelTests.swift; sourceTree = "<group>"; };
+		78999B3E2799E0690062AACE /* FakeJSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSONLoader.swift; sourceTree = "<group>"; };
+		78999B422799E1130062AACE /* FakePhotosData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakePhotosData.json; sourceTree = "<group>"; };
+		78999B462799EB160062AACE /* FakeNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkService.swift; sourceTree = "<group>"; };
+		78999B492799EB2D0062AACE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		78999B4B2799EB460062AACE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		78999B4D2799EB610062AACE /* DataConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertable.swift; sourceTree = "<group>"; };
+		78999B4F2799EED20062AACE /* FakeURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeURLProtocol.swift; sourceTree = "<group>"; };
+		78999B512799EFCA0062AACE /* FakeFailureData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeFailureData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +121,7 @@
 		78999B04279866B00062AACE /* UnsplashApp */ = {
 			isa = PBXGroup;
 			children = (
+				78999B482799EB260062AACE /* Network */,
 				78999B35279869820062AACE /* Photos */,
 				78999B05279866B00062AACE /* AppDelegate.swift */,
 				78999B07279866B00062AACE /* SceneDelegate.swift */,
@@ -117,7 +136,10 @@
 		78999B1B279866B60062AACE /* UnsplashAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				78999B1C279866B60062AACE /* UnsplashFetcherTests.swift */,
+				78999B452799EAD40062AACE /* Network */,
+				78999B442799E96D0062AACE /* Photos */,
+				78999B412799E0E40062AACE /* FakeData */,
+				78999B402799E0DB0062AACE /* Fakes */,
 			);
 			path = UnsplashAppTests;
 			sourceTree = "<group>";
@@ -139,6 +161,51 @@
 				78999B09279866B00062AACE /* ViewController.swift */,
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		78999B402799E0DB0062AACE /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				78999B3E2799E0690062AACE /* FakeJSONLoader.swift */,
+				78999B4F2799EED20062AACE /* FakeURLProtocol.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		78999B412799E0E40062AACE /* FakeData */ = {
+			isa = PBXGroup;
+			children = (
+				78999B422799E1130062AACE /* FakePhotosData.json */,
+				78999B512799EFCA0062AACE /* FakeFailureData.json */,
+			);
+			path = FakeData;
+			sourceTree = "<group>";
+		};
+		78999B442799E96D0062AACE /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				78999B3C2799D9B20062AACE /* PhotosViewModelTests.swift */,
+				78999B1C279866B60062AACE /* UnsplashFetcherTests.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		78999B452799EAD40062AACE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				78999B462799EB160062AACE /* FakeNetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		78999B482799EB260062AACE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				78999B4D2799EB610062AACE /* DataConvertable.swift */,
+				78999B492799EB2D0062AACE /* Network.swift */,
+				78999B4B2799EB460062AACE /* NetworkError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +322,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78999B522799EFCA0062AACE /* FakeFailureData.json in Resources */,
+				78999B432799E1130062AACE /* FakePhotosData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,10 +342,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				78999B0A279866B00062AACE /* ViewController.swift in Sources */,
+				78999B4C2799EB460062AACE /* NetworkError.swift in Sources */,
 				78999B06279866B00062AACE /* AppDelegate.swift in Sources */,
+				78999B4A2799EB2D0062AACE /* Network.swift in Sources */,
 				78999B392798E0680062AACE /* PhotosViewModel.swift in Sources */,
 				78999B08279866B00062AACE /* SceneDelegate.swift in Sources */,
 				78999B37279869A10062AACE /* UnsplashFetcher.swift in Sources */,
+				78999B4E2799EB610062AACE /* DataConvertable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +357,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				78999B1D279866B60062AACE /* UnsplashFetcherTests.swift in Sources */,
+				78999B472799EB160062AACE /* FakeNetworkService.swift in Sources */,
+				78999B502799EED20062AACE /* FakeURLProtocol.swift in Sources */,
+				78999B3F2799E0690062AACE /* FakeJSONLoader.swift in Sources */,
+				78999B3D2799D9B20062AACE /* PhotosViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
