@@ -6,20 +6,43 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let rowHeight = CGFloat(300)
     var tableView: UITableView  =   UITableView()
     private var viewModel: PhotosViewModel!
-
-    var itemsToLoad: [String] = ["One", "Two", "Three"]
+    private var unsplashFetcher: UnsplashFetcher!
+    private var networkService: NetworkService!
+    private var subscribers = [AnyCancellable]()
+    private var photoDescription: String = "Default State"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 300
+        tableView.estimatedRowHeight = rowHeight
 
-        viewModel = PhotosViewModel()
+        networkService = NetworkService(urlSession: URLSession.shared)
+        unsplashFetcher = UnsplashFetcher(networkService: networkService)
+        viewModel = PhotosViewModel(unsplashFetcher: unsplashFetcher)
+
+        // TODO: Diffable Datasource
+        viewModel.$photoDescription
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { value in
+                switch value {
+                case .failure:
+                    print("Failure")
+                case .finished:
+                    print("Failure")
+                }
+            }, receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                    self.photoDescription = value
+                    self.tableView.reloadData()
+              })
+              .store(in: &subscribers)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,13 +69,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsToLoad.count
+        // TODO: Dynamic
+        return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // TODO: diffable datasource
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath as IndexPath as IndexPath as IndexPath)
 
-        cell.textLabel?.text = viewModel.getPhotos()
+        cell.textLabel?.text = photoDescription
         cell.textLabel?.numberOfLines = 0
 
         return cell
@@ -63,11 +88,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return rowHeight
     }
 
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
+        print("User selected table row \(indexPath.row) and item \(indexPath.row)")
     }
 }
 

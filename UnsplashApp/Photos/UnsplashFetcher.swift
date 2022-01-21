@@ -12,7 +12,7 @@ protocol UnsplashFetcherable: AnyObject {
     /// Returns a publisher for `Photos`
     ///
     /// - Returns: A publisher of type `<Photos, NetworkError>` used to return `Photos`
-    func photos() -> AnyPublisher<Photos, NetworkError>
+    func photos() -> AnyPublisher<[Photo], NetworkError>
 }
 
 class UnsplashFetcher: UnsplashFetcherable {
@@ -22,7 +22,7 @@ class UnsplashFetcher: UnsplashFetcherable {
         self.networkService = networkService
     }
 
-    func photos() -> AnyPublisher<Photos, NetworkError> {
+    func photos() -> AnyPublisher<[Photo], NetworkError> {
         let urlRequest = URLRequest(url: UnsplashFetcher.Endpoints.photos.url)
         return networkService.taskForGetRequest(with: urlRequest)
     }

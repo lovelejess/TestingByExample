@@ -29,6 +29,8 @@
 		78999B522799EFCA0062AACE /* FakeFailureData.json in Resources */ = {isa = PBXBuildFile; fileRef = 78999B512799EFCA0062AACE /* FakeFailureData.json */; };
 		78999B542799F2740062AACE /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B532799F2740062AACE /* NetworkTests.swift */; };
 		78999B562799F2C40062AACE /* DataConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B552799F2C40062AACE /* DataConverterTests.swift */; };
+		78999B58279A084E0062AACE /* FakeUnsplashFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B57279A084D0062AACE /* FakeUnsplashFetcher.swift */; };
+		78999B5A279B51030062AACE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78999B59279B51030062AACE /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		78999B512799EFCA0062AACE /* FakeFailureData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeFailureData.json; sourceTree = "<group>"; };
 		78999B532799F2740062AACE /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		78999B552799F2C40062AACE /* DataConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverterTests.swift; sourceTree = "<group>"; };
+		78999B57279A084D0062AACE /* FakeUnsplashFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUnsplashFetcher.swift; sourceTree = "<group>"; };
+		78999B59279B51030062AACE /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				78999B382798E0680062AACE /* PhotosViewModel.swift */,
 				78999B36279869A10062AACE /* UnsplashFetcher.swift */,
 				78999B09279866B00062AACE /* ViewController.swift */,
+				78999B59279B51030062AACE /* Photo.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				78999B3E2799E0690062AACE /* FakeJSONLoader.swift */,
 				78999B4F2799EED20062AACE /* FakeURLProtocol.swift */,
+				78999B57279A084D0062AACE /* FakeUnsplashFetcher.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				78999B0A279866B00062AACE /* ViewController.swift in Sources */,
 				78999B4C2799EB460062AACE /* NetworkError.swift in Sources */,
 				78999B06279866B00062AACE /* AppDelegate.swift in Sources */,
+				78999B5A279B51030062AACE /* Photo.swift in Sources */,
 				78999B4A2799EB2D0062AACE /* Network.swift in Sources */,
 				78999B392798E0680062AACE /* PhotosViewModel.swift in Sources */,
 				78999B08279866B00062AACE /* SceneDelegate.swift in Sources */,
@@ -368,6 +375,7 @@
 				78999B472799EB160062AACE /* FakeNetworkService.swift in Sources */,
 				78999B502799EED20062AACE /* FakeURLProtocol.swift in Sources */,
 				78999B3F2799E0690062AACE /* FakeJSONLoader.swift in Sources */,
+				78999B58279A084E0062AACE /* FakeUnsplashFetcher.swift in Sources */,
 				78999B3D2799D9B20062AACE /* PhotosViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

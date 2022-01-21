@@ -22,7 +22,7 @@ class DataConverterTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Successfully Decodes")
         guard let data = FakeJSONLoader.loadFile(for: "FakePhotosData") else { XCTFail("Unable load mock data");return }
 
-        let expected = Photos(id: "LBI7cgq3pbM")
+        let expected = [ Photo(id: "LBI7cgq3pbM") ]
 
         let url = UnsplashFetcher.Endpoints.photos.url
 
@@ -36,8 +36,8 @@ class DataConverterTests: XCTestCase {
                 XCTAssertNotNil(value)
                 expectation.fulfill()
               }
-            }, receiveValue: { (response: Photos) in
-                XCTAssertEqual(response.id, expected.id)
+            }, receiveValue: { (response: [Photo]) in
+                XCTAssertEqual(response[0].id, expected[0].id)
                 expectation.fulfill()
             })
             .store(in: &subscribers)
@@ -62,7 +62,7 @@ class DataConverterTests: XCTestCase {
               case .finished:
                   XCTFail("Test should cause a failure")
               }
-            }, receiveValue: { (response: Photos) in
+            }, receiveValue: { (response: [ Photo ]) in
                 XCTFail("Test should cause a failure")
             })
             .store(in: &subscribers)

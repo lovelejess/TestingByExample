@@ -6,18 +6,38 @@
 //
 
 import Foundation
+import Combine
 
 class PhotosViewModel {
 
-    func getPhotos() -> String {
-        // make network call to get photos
-        // parse data
-        // get photo description
-//        return UnsplashFetcher.Endpoints.photos.url.description
-        return "FAILURE"
-    }
-}
+    private var unsplashFetcher: UnsplashFetcher!
+    private var subscribers = [AnyCancellable]()
 
-struct Photos: Codable {
-    var id: String
+    @Published
+    var photoDescription: String = ""
+
+    init(unsplashFetcher: UnsplashFetcherable) {
+        self.unsplashFetcher = unsplashFetcher as? UnsplashFetcher
+        getPhotos()
+    }
+
+    func getPhotos() {
+        unsplashFetcher.photos()
+            .sink(receiveCompletion: { [weak self] value in
+                guard let self = self else { return }
+                switch value {
+                case .failure:
+                    self.photoDescription = "error!"
+                case .finished:
+                    return
+                }
+            }, receiveValue: { [weak self] response in
+                guard let self = self else { return }
+
+                // TODO: get the entire array and map it
+                self.photoDescription = response[0].id
+            })
+            .store(in: &subscribers)
+
+    }
 }

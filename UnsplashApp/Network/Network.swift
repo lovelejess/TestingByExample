@@ -23,7 +23,7 @@ public class NetworkService: Networkable {
     private let urlSession: URLSession
     private let dataConverter: DataConverterable
 
-    init(urlSession: URLSession, dataConverter: DataConverterable) {
+    init(urlSession: URLSession, dataConverter: DataConverterable = DataConverter()) {
         self.urlSession = urlSession
         self.dataConverter = dataConverter
     }

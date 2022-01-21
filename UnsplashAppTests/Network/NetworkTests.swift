@@ -2,7 +2,6 @@
 //  NetworkTests.swift
 //  UnsplashAppTests
 //
-//  Created by Jess Le on 1/20/22.
 //
 
 import XCTest

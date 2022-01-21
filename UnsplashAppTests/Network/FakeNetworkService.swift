@@ -2,7 +2,6 @@
 //  FakeNetworkService.swift
 //  UnsplashAppTests
 //
-//
 
 import Foundation
 import Combine
