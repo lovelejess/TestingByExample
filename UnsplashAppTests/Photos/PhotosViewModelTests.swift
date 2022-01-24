@@ -21,17 +21,20 @@ class PhotosViewModelTests: XCTestCase {
         urlSessionMock = URLSession(configuration: config)
         fakeNetworkService = FakeNetworkService(urlSession: urlSessionMock)
         fakeUnsplashFetcher = FakeUnsplashFetcher(networkService: fakeNetworkService)
-        viewModel = PhotosViewModel(unsplashFetcher: fakeUnsplashFetcher)
+
     }
 
-    func test_getPhotos_returns_photoDescription() throws {
+    func test_getPhotos_returns_photos() throws {
         let expectation = XCTestExpectation(description: "Successfully Gets Photo Desscription")
-        let expected = "A man drinking a coffee."
+        let expected = "LBI7cgq3pbM"
+
+        viewModel = PhotosViewModel(unsplashFetcher: fakeUnsplashFetcher)
 
         viewModel.getPhotos()
 
         viewModel.$photoDescription
             .receive(on: DispatchQueue.main)
+            .dropFirst()
             .sink(receiveCompletion: { value in
                 switch value {
                 case .failure:

@@ -10,17 +10,21 @@ import Combine
 
 class PhotosViewModel {
 
-    private var unsplashFetcher: UnsplashFetcher!
+    private var unsplashFetcher: UnsplashFetcherable!
     private var subscribers = [AnyCancellable]()
 
     @Published
     var photoDescription: String = ""
 
     init(unsplashFetcher: UnsplashFetcherable) {
-        self.unsplashFetcher = unsplashFetcher as? UnsplashFetcher
+        self.unsplashFetcher = unsplashFetcher
         getPhotos()
     }
 
+    /// Retrieves photos from the Unsplash API.
+    /// Once values are retrieved, it publishes the values via `photoDescription`
+    //
+    /// - Returns: A publisher of type `<Photos, NetworkError>` used to return `Photos`
     func getPhotos() {
         unsplashFetcher.photos()
             .sink(receiveCompletion: { [weak self] value in
@@ -38,6 +42,5 @@ class PhotosViewModel {
                 self.photoDescription = response[0].id
             })
             .store(in: &subscribers)
-
     }
 }
